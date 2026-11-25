@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>subtitle-forge · Subtítulos y traducción 100 % en tu PC</title>
+<meta name="description" content="Genera subtítulos, traduce vídeos y documentos (PDF/EPUB), haz OCR de escaneados. Todo offline: nada sale de tu PC.">
+<!-- No third-party scripts, fonts, analytics or trackers: this page is one static file. -->
+<style>
+  :root {
+    --bg: #fafaf9; --fg: #1c1917; --muted: #57534e; --card: #ffffff; --line: #e7e5e4;
+    --accent: #2563eb; --accent-fg: #ffffff; --accent-soft: #dbeafe;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0c0a09; --fg: #f5f5f4; --muted: #a8a29e; --card: #1c1917; --line: #292524;
+            --accent: #60a5fa; --accent-fg: #0c0a09; --accent-soft: #1e3a5f; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--fg); line-height: 1.6;
+         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header.nav { padding: 16px 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .brand { font-weight: 700; letter-spacing: -.01em; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 16px; font-size: .95rem; }
+  nav a:hover { color: var(--fg); }
+  .hero { padding: 48px 0 40px; text-align: center; }
+  h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; margin: 0 0 16px; letter-spacing: -.02em; }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; margin: 0 auto 28px; }
+  .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; text-decoration: none; font-weight: 600;
+         border: 1px solid var(--line); color: var(--fg); background: var(--card); }
+  .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .small { font-size: .85rem; color: var(--muted); margin-top: 14px; }
+  .demo { margin: 36px auto 0; max-width: 760px; border: 1px dashed var(--line); border-radius: 12px; padding: 40px 16px;
+          color: var(--muted); background: var(--card); }
+  section { padding: 44px 0; }
+  h2 { font-size: 1.7rem; margin: 0 0 24px; letter-spacing: -.01em; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  .privacy { background: var(--accent-soft); border-radius: 16px; padding: 32px 24px; }
+  .privacy ul { margin: 12px 0 0; padding-left: 20px; }
+  .privacy li { margin: 6px 0; }
+  .dl { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .dl .card .btn { margin-top: 14px; }
+  code, pre { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: .9rem; }
+  pre { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; overflow-x: auto; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--muted); font-size: .9rem; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <span class="brand">🎬 subtitle-forge</span>
+    <nav aria-label="Principal">
+      <a href="#funciones">Funciones</a>
+      <a href="#privacidad">Privacidad</a>
+      <a href="#descargas">Descargas</a>
+      <a href="https://github.com/AgentRayx/Agent_Traductor">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Subtítulos y traducción,<br>sin salir de tu PC</h1>
+      <p class="lead">Genera subtítulos de cualquier vídeo, tradúcelos y convierte documentos (PDF, EPUB, escaneados con OCR). Funciona sin internet y sin GPU.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://github.com/AgentRayx/Agent_Traductor/releases/latest">Descargar para Windows</a>
+        <a class="btn" href="#linux-mac">Linux / macOS</a>
+      </div>
+      <p class="small">Gratis y de código abierto. Portable (.zip) o instalador.</p>
+
+      <img src="demo.gif" alt="Demostración: de un vídeo a un .srt traducido en 15 segundos" width="760" loading="lazy">
+    </div>
+
+    <section id="funciones">
+      <h2>Qué puedes hacer</h2>
+      <div class="grid">
+        <div class="card"><h3>Subtítulos automáticos</h3><p>Transcribe cualquier vídeo o audio a <code>.srt</code> / <code>.vtt</code> con Whisper, detectando el idioma.</p></div>
+        <div class="card"><h3>Traducción offline</h3><p>Traduce los subtítulos a otro idioma con Argos Translate, sin enviar nada a ningún servidor.</p></div>
+        <div class="card"><h3>Subtítulos incrustados</h3><p>Quema los subtítulos en el vídeo y procesa carpetas enteras en lote.</p></div>
+        <div class="card"><h3>PDF y EPUB</h3><p>Traduce libros y artículos: PDF bilingüe (original en gris + traducción), EPUB o Markdown.</p></div>
+        <div class="card"><h3>OCR para escaneados</h3><p>¿PDF que es solo imágenes? <code>--ocr</code> reconoce el texto con Tesseract, en CPU.</p></div>
+        <div class="card"><h3>Interfaz web y celular</h3><p>Arrastra y suelta desde el navegador, o úsalo desde tu móvil por la red local con un código QR.</p></div>
+        <div class="card"><h3>Manga (opcional)</h3><p>Integración con un motor externo para traducir páginas de manga.</p></div>
+        <div class="card"><h3>Para cualquier PC</h3><p>CPU modesto, poca RAM y sin dependencias gigantes: los modelos se cargan de a uno.</p></div>
+      </div>
+    </section>
+
+    <section id="privacidad">
+      <div class="privacy">
+        <h2>Privacidad primero: nada sale de tu PC</h2>
+        <p>Tu audio, tus vídeos y tus documentos se procesan en tu equipo y nunca se suben a ningún servidor.</p>
+        <ul>
+          <li><strong>Sin nube, sin cuentas, sin telemetría.</strong> Esta página tampoco usa scripts de terceros ni rastreadores.</li>
+          <li>La red solo se usa <strong>una vez</strong>, para descargar los modelos la primera vez que los necesitas.</li>
+          <li>Después funciona <strong>100 % sin conexión</strong>.</li>
+          <li>La interfaz web escucha solo en tu equipo (127.0.0.1); el modo celular exige un token aleatorio.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="descargas">
+      <h2>Descargas</h2>
+      <div class="dl">
+        <div class="card">
+          <h3>Portable (.zip)</h3>
+          <p>Descomprime y ejecuta <code>subforge.exe</code>. Incluye ffmpeg y Tesseract. No instala nada.</p>
+          <a class="btn primary" href="https://github.com/AgentRayx/Agent_Traductor/releases/latest">Ir a Releases</a>
+        </div>
+        <div class="card">
+          <h3>Instalador de Windows</h3>
+          <p>Instala en Program Files, crea accesos directos y un desinstalador.</p>
+          <a class="btn" href="https://github.com/AgentRayx/Agent_Traductor/releases/latest">Ir a Releases</a>
+        </div>
+        <div class="card">
+          <h3>Versión <em>full</em> o <em>lite</em></h3>
+          <p><strong>full</strong>: incluye traducción. <strong>lite</strong>: solo subtítulos, documentos y OCR (descarga más liviana).</p>
+        </div>
+      </div>
+
+      <h2 id="linux-mac" style="margin-top:40px">Linux y macOS</h2>
+      <pre><code>git clone https://github.com/AgentRayx/Agent_Traductor.git
+cd subforge
+python3 -m venv .venv &amp;&amp; source .venv/bin/activate
+pip install -e ".[translate,ui,ocr]"
+sudo apt install ffmpeg tesseract-ocr      # macOS: brew install ffmpeg tesseract
+subforge make video.mp4 --translate es</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>subtitle-forge · Licencia MIT (ver avisos de terceros en el paquete) ·
+       <a href="https://github.com/AgentRayx/Agent_Traductor">Código fuente</a> ·
+       <a href="https://github.com/AgentRayx/Agent_Traductor/issues">Reportar un problema</a></p>
+  </footer>
+</div>
+</body>
+</html>

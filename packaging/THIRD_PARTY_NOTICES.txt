@@ -1,0 +1,40 @@
+subtitle-forge - THIRD-PARTY NOTICES
+====================================
+subtitle-forge's own source code is MIT licensed (see LICENSE.txt).
+This binary package also contains third-party software under the licenses below.
+
+!! LICENSE NOTE - READ THIS !!
+ * FFmpeg (bin\ffmpeg.exe, bin\ffprobe.exe) is a GPL v3 build (configured with --enable-gpl
+   --enable-version3). It runs as a SEPARATE program; subforge only launches it.
+ * PyMuPDF (AGPL-3.0, or a commercial license from Artifex) and EbookLib (AGPL-3.0-or-later)
+   are linked INTO subforge.exe. Distributing a binary that contains them means the combined
+   program must be made available under AGPL-3.0 terms, including its corresponding source
+   code. The complete source of subforge is available at the project page below.
+Project source (this build corresponds to the tagged release):
+   https://github.com/AgentRayx/Agent_Traductor
+
+Bundled programs (separate executables)
+---------------------------------------
+FFmpeg 9.x "essentials" build by gyan.dev   GPL-3.0-or-later   https://www.gyan.dev/ffmpeg/builds/
+   Source: https://ffmpeg.org/download.html  and  https://www.gyan.dev/ffmpeg/builds/
+Tesseract OCR 5.4 (UB-Mannheim build)       Apache-2.0         https://github.com/tesseract-ocr/tesseract
+   Includes Leptonica (BSD-2-Clause) and MinGW/MSYS2 runtime DLLs (GPL-3.0 with GCC runtime
+   exception / permissive). Installer: https://github.com/UB-Mannheim/tesseract
+tessdata_fast language data (eng, spa)      Apache-2.0         https://github.com/tesseract-ocr/tessdata_fast
+
+Python libraries compiled into the executable
+---------------------------------------------
+Python (PSF License), PyInstaller bootloader (GPL-2.0-or-later with the PyInstaller exception),
+faster-whisper (MIT), CTranslate2 (MIT), ONNX Runtime (MIT), PyAV (BSD-3-Clause),
+tokenizers (Apache-2.0), PyMuPDF (AGPL-3.0 / commercial), EbookLib (AGPL-3.0-or-later),
+pytesseract (Apache-2.0), Pillow (MIT-CMU), FastAPI (MIT), Starlette (BSD-3-Clause),
+Uvicorn (BSD-3-Clause), segno (BSD-3-Clause), NumPy (BSD-3-Clause).
+FULL build only: Argos Translate (MIT), Stanza (Apache-2.0), PyTorch CPU (BSD-3-Clause),
+spaCy (MIT), SentencePiece (Apache-2.0), minisbd (MIT).
+
+Models (NOT included; downloaded on first use, stored next to the program / in your user folder)
+------------------------------------------------------------------------------------------------
+Whisper models via faster-whisper / Systran (MIT); Argos Translate language packages
+(their own licenses, see https://github.com/argosopentech/argos-translate).
+
+Each component's complete license text is available from the project pages listed above.

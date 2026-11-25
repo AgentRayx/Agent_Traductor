@@ -1,0 +1,27 @@
+.venv/
+.cache/
+.data/
+.tmp/
+.logs/
+bin/
+out/
+models/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+*.srt
+*.vtt
+!tests/**/*.srt
+dist/
+build/
+
+# extras
+.mypy_cache/
+.ruff_cache/
+.env
+.env.*
+*.log
+Thumbs.db
+desktop.ini
+*.pyc
+.claude/

@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# NOTE: "subforge" is already taken on PyPI (an unrelated project), so the distribution is
+# "subtitle-forge"; the installed command is still `subforge`.
+name = "subtitle-forge"
+dynamic = ["version"]
+description = "Offline subtitle generation (faster-whisper), translation (Argos), PDF/EPUB and OCR. Privacy-first: nothing leaves your PC."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "subtitle-forge contributors" }]
+keywords = ["subtitles", "srt", "whisper", "translation", "offline", "ocr", "pdf", "epub", "privacy"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Text Processing :: Linguistic",
+]
+# av<19: PyAV 19 removed av.open(metadata_errors=...), which faster-whisper 1.2.x still passes
+# (transcription fails with "unexpected keyword argument 'metadata_errors'"). Lift once fixed upstream.
+dependencies = ["faster-whisper>=1.0.0", "av>=11,<19", "pymupdf>=1.24", "ebooklib>=0.18"]
+
+[project.urls]
+Homepage = "https://github.com/AgentRayx/Agent_Traductor"
+Source = "https://github.com/AgentRayx/Agent_Traductor"
+Issues = "https://github.com/AgentRayx/Agent_Traductor/issues"
+
+[project.optional-dependencies]
+translate = ["argostranslate>=1.9"]
+ui = ["fastapi>=0.110", "uvicorn>=0.29", "python-multipart>=0.0.9", "segno>=1.6"]
+ocr = ["pytesseract>=0.3.10", "pillow>=10"]
+dev = ["pytest>=7"]
+build = ["pyinstaller>=6", "build>=1", "twine>=5"]
+
+[project.scripts]
+subforge = "subforge.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "subforge.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+subforge = ["static/*.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["slow: tests that download/run real models (deselected by default)"]
+addopts = "-m 'not slow'"
